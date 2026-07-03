@@ -40,6 +40,20 @@ export default function Home() {
           <p className={styles.sectionText}>
             หน้านี้จะเป็นพื้นที่แนะนำตัวและแสดงผลงานพร้อมบอกจุดแข็งของ Miss ในการสร้างเว็บไซต์ที่ใช้งานง่ายและมีเอกลักษณ์
           </p>
+          <div className={styles.aboutGrid}>
+            <div className={styles.aboutItem}>
+              <h3>ออกแบบด้วยใจ</h3>
+              <p>คำนึงถึงผู้ใช้ตั้งแต่หน้าจอแรกจนถึงการเข้าถึงข้อมูลสำคัญ</p>
+            </div>
+            <div className={styles.aboutItem}>
+              <h3>เล่นสีอย่างชาญฉลาด</h3>
+              <p>ใช้สีแดงเป็นจุดสนใจ โดยยังคงความเรียบง่ายและมีอารมณ์</p>
+            </div>
+            <div className={styles.aboutItem}>
+              <h3>ปรับตัวได้ทุกหน้าจอ</h3>
+              <p>ดีไซน์ที่ทำงานดีทั้งบนคอมพิวเตอร์ แท็บเล็ต และมือถือ</p>
+            </div>
+          </div>
         </section>
 
         <section className={styles.section} id="projects">
@@ -114,6 +128,9 @@ export default function Home() {
           </aside>
         </section>
       </main>
+      <footer className={styles.footer}>
+        <p>Miss Portfolio — ดีไซน์เรียบง่าย สีแดงโดดเด่น</p>
+      </footer>
     </div>
   );
 }

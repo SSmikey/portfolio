@@ -13,6 +13,14 @@
   --surface-soft: #faf8f8;
   --border: #e8dede;
   --muted: #6b6b6b;
+
+  /* Bootstrap variable overrides mapped to theme colors */
+  --bs-primary: var(--accent);
+  --bs-danger: var(--accent-strong);
+  --bs-body-bg: var(--background);
+  --bs-body-color: var(--foreground);
+  --bs-border-color: var(--border);
+  --bs-secondary: var(--muted);
 }
 
 html {

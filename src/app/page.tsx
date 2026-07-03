@@ -1,65 +1,46 @@
-import Image from "next/image";
 import styles from "./page.module.css";
 
 export default function Home() {
   return (
     <div className={styles.page}>
       <main className={styles.main}>
-        <Image
-          className={styles.logo}
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className={styles.intro}>
-          <h1>To get started, edit the page.tsx file.</h1>
-          <p>
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Learning
-            </a>{" "}
-            center.
+        <section className={styles.hero}>
+          <div className={styles.heroContent}>
+            <span className={styles.heroTag}>Portfolio</span>
+            <div className={styles.heroCopy}>
+              <p className={styles.heroEyebrow}>Miss</p>
+              <h1>สร้างเว็บ portfolio ที่เรียบง่าย แต่โดดเด่นด้วยสีแดง</h1>
+              <p>
+                ผสานความเรียบและพลังผ่านดีไซน์ที่สะอาดตา พร้อมรายละเอียดเล็กๆ ที่ช่วยให้หน้าเว็บดูมีชีวิต
+              </p>
+            </div>
+            <div className={styles.ctas}>
+              <a className={styles.primary} href="#projects">
+                ดูผลงาน
+              </a>
+              <a className={styles.secondary} href="#contact">
+                ติดต่อฉัน
+              </a>
+            </div>
+          </div>
+          <aside className={styles.heroCard}>
+            <p className={styles.heroCardTitle}>สวัสดีค่ะ ฉันคือ Miss</p>
+            <p className={styles.heroCardText}>
+              นักพัฒนาและนักออกแบบเว็บที่เชื่อใน UX ที่เรียบง่าย อ่านง่าย และมีพลังด้วยการเลือกใช้สีอย่างตั้งใจ
+            </p>
+            <div className={styles.accentCircle} />
+          </aside>
+        </section>
+
+        <section className={styles.section} id="about">
+          <div className={styles.sectionHeader}>
+            <p className={styles.sectionLabel}>About</p>
+            <h2>เน้นการเล่าเรื่องสั้น ๆ แต่มีความหมาย</h2>
+          </div>
+          <p className={styles.sectionText}>
+            หน้านี้จะเป็นพื้นที่แนะนำตัวและแสดงผลงานพร้อมบอกจุดแข็งของ Miss ในการสร้างเว็บไซต์ที่ใช้งานง่ายและมีเอกลักษณ์
           </p>
-        </div>
-        <div className={styles.ctas}>
-          <a
-            className={styles.primary}
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className={styles.logo}
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className={styles.secondary}
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
-        </div>
+        </section>
       </main>
     </div>
   );

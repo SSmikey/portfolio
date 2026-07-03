@@ -3,6 +3,17 @@ import styles from "./page.module.css";
 export default function Home() {
   return (
     <div className={styles.page}>
+      <header className={styles.header}>
+        <nav className={styles.navbar}>
+          <div className={styles.navBrand}>Miss</div>
+          <ul className={styles.navMenu}>
+            <li><a href="#about">About</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </nav>
+      </header>
       <main className={styles.main}>
         <section className={styles.hero}>
           <div className={styles.heroContent}>

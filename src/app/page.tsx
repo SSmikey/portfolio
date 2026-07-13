@@ -5,7 +5,7 @@ export default function Home() {
     <main>
       <section className="position-relative vh-100 w-100 overflow-hidden">
         <Image
-          src="/img/BG page.png"
+          src="/img/BG page1.png"
           alt="Sittichai Sangnon - Programmer Portfolio"
           fill
           priority
@@ -14,7 +14,15 @@ export default function Home() {
         />
 
         <nav className="navbar navbar-expand-lg navbar-dark position-absolute top-0 start-0 w-100 bg-transparent px-3 px-lg-5 py-4">
-          <div className="container-fluid px-0 justify-content-center">
+          <div className="container-fluid px-0">
+            <a
+              className="navbar-brand fw-bold text-uppercase"
+              href="#home"
+              style={{ color: "#eee6d6", letterSpacing: "0.50em" }}
+            >
+              <span>Sittichai</span>
+              <span style={{ marginLeft: "12rem" }}>Sangnon</span>
+            </a>
             <button
               className="navbar-toggler"
               type="button"
@@ -26,7 +34,7 @@ export default function Home() {
             >
               <span className="navbar-toggler-icon" />
             </button>
-            <div className="collapse navbar-collapse justify-content-center" id="mainNav">
+            <div className="collapse navbar-collapse justify-content-end" id="mainNav">
               <div className="d-flex flex-column flex-lg-row gap-lg-4 mt-3 mt-lg-0">
                 {[
                   { href: "#home", label: "Home" },

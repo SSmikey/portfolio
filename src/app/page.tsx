@@ -27,7 +27,7 @@ export default function Home() {
     <main>
       <Navbar />
 
-      <section className="position-relative vh-100 w-100 overflow-hidden">
+      <section id="home" className="position-relative vh-100 w-100 overflow-hidden">
         <Image
           src="/img/BG page1.png"
           alt="Sittichai Sangnon - Programmer Portfolio"

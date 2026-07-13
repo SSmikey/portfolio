@@ -12,9 +12,14 @@ const NAV_LINKS = [
 
 export default function Navbar() {
   const [hidden, setHidden] = useState(false);
+  const [activeId, setActiveId] = useState("home");
   const lastScrollY = useRef(0);
 
   useEffect(() => {
+    const sections = NAV_LINKS.map((link) => document.getElementById(link.href.slice(1))).filter(
+      (el): el is HTMLElement => el !== null
+    );
+
     lastScrollY.current = window.scrollY;
 
     function handleScroll() {
@@ -23,8 +28,18 @@ export default function Navbar() {
 
       setHidden(currentScrollY > 80 && scrollingDown);
       lastScrollY.current = currentScrollY;
+
+      const offset = window.innerHeight * 0.4;
+      let current = sections[0]?.id ?? "home";
+      for (const section of sections) {
+        if (section.getBoundingClientRect().top <= offset) {
+          current = section.id;
+        }
+      }
+      setActiveId(current);
     }
 
+    handleScroll();
     window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
@@ -63,16 +78,33 @@ export default function Navbar() {
         </button>
         <div className="collapse navbar-collapse justify-content-end" id="mainNav">
           <div className="d-flex flex-column flex-lg-row gap-lg-4 mt-3 mt-lg-0">
-            {NAV_LINKS.map((item) => (
-              <a
-                key={item.href}
-                href={item.href}
-                className="nav-link fw-semibold text-uppercase small"
-                style={{ color: "#eee6d6" }}
-              >
-                {item.label}
-              </a>
-            ))}
+            {NAV_LINKS.map((item) => {
+              const isActive = item.href.slice(1) === activeId;
+              return (
+                <a
+                  key={item.href}
+                  href={item.href}
+                  className="nav-link fw-semibold text-uppercase small position-relative"
+                  style={{
+                    color: isActive ? "#e8503f" : "#eee6d6",
+                    opacity: isActive ? 1 : 0.85,
+                  }}
+                >
+                  {item.label}
+                  <span
+                    style={{
+                      position: "absolute",
+                      left: 0,
+                      bottom: -4,
+                      height: 2,
+                      width: isActive ? "100%" : 0,
+                      backgroundColor: "#e8503f",
+                      transition: "width 0.25s ease",
+                    }}
+                  />
+                </a>
+              );
+            })}
           </div>
         </div>
       </div>

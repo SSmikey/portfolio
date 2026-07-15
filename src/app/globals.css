@@ -54,3 +54,159 @@ a {
   color: inherit;
   text-decoration: none;
 }
+
+/* Scroll-reveal (used by Reveal.tsx) */
+.reveal {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+  will-change: opacity, transform;
+}
+
+.reveal-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Cards & interactive elements */
+.about-card {
+  transition: transform 0.35s ease, box-shadow 0.35s ease;
+}
+
+.about-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 18px 38px rgba(139, 23, 33, 0.4) !important;
+}
+
+.tech-badge {
+  transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
+}
+
+.tech-badge:hover {
+  transform: translateY(-3px) scale(1.06);
+  background-color: #a81f2b !important;
+  box-shadow: 0 8px 16px rgba(139, 23, 33, 0.45);
+}
+
+.service-card {
+  transition: transform 0.35s ease, box-shadow 0.35s ease;
+}
+
+.service-card:hover {
+  transform: translate(4px, -8px);
+  box-shadow: -16px -16px 0 0 #e8503f, 0 20px 30px rgba(0, 0, 0, 0.45) !important;
+}
+
+.service-card h5 {
+  transition: color 0.3s ease;
+}
+
+.service-card:hover h5 {
+  color: #e8503f !important;
+}
+
+.project-card-strip img {
+  transition: transform 0.5s ease;
+}
+
+.project-card:hover .project-card-strip img {
+  transform: scale(1.1);
+}
+
+.project-card-body {
+  transition: transform 0.35s ease, box-shadow 0.35s ease;
+}
+
+.project-card:hover .project-card-body {
+  transform: translateX(8px);
+  box-shadow: -8px 0 24px rgba(0, 0, 0, 0.4);
+}
+
+.view-project-link {
+  transition: color 0.25s ease;
+}
+
+.view-project-link:hover {
+  color: #ff7a63 !important;
+}
+
+.view-project-link .arrow {
+  display: inline-block;
+  transition: transform 0.25s ease;
+}
+
+.view-project-link:hover .arrow {
+  transform: translateX(6px);
+}
+
+.info-list li {
+  transition: color 0.2s ease, transform 0.2s ease;
+}
+
+.info-list li:hover {
+  color: #e8503f;
+  transform: translateX(4px);
+}
+
+.contact-item {
+  transition: transform 0.25s ease;
+}
+
+.contact-item:hover {
+  transform: translateX(6px);
+}
+
+.contact-item:hover .tech-badge {
+  transform: translateY(-3px) scale(1.06);
+  background-color: #a81f2b !important;
+}
+
+.nav-link-custom {
+  transition: color 0.25s ease, opacity 0.25s ease;
+}
+
+.nav-link-custom:hover {
+  color: #e8503f !important;
+  opacity: 1 !important;
+}
+
+.nav-link-custom:hover .nav-underline {
+  width: 100% !important;
+}
+
+.navbar-brand span {
+  display: inline-block;
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.navbar-brand:hover span:first-child {
+  transform: translateY(-2px);
+}
+
+.navbar-brand:hover span:last-child {
+  transform: translateY(2px);
+  color: #e8503f;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+
+  .about-card,
+  .tech-badge,
+  .service-card,
+  .service-card h5,
+  .project-card-strip img,
+  .project-card-body,
+  .view-project-link,
+  .view-project-link .arrow,
+  .info-list li,
+  .contact-item,
+  .nav-link-custom,
+  .navbar-brand span {
+    transition: none !important;
+  }
+}

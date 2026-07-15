@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Navbar from "./Navbar";
+import Reveal from "./Reveal";
 
 const BG_IMAGE = "/img/BG page1.png";
 
@@ -11,7 +12,7 @@ function AboutCard({
   children: React.ReactNode;
 }) {
   return (
-    <div className="card border-0 shadow-lg h-100">
+    <div className="card border-0 shadow-lg h-100 about-card">
       <div
         className="card-header fw-bold text-uppercase"
         style={{ backgroundColor: "#8b1721", color: "#e7e7d8", letterSpacing: "0.1em" }}
@@ -28,7 +29,7 @@ function AboutCard({
 function TechBadge({ label }: { label: string }) {
   return (
     <span
-      className="badge fw-normal"
+      className="badge fw-normal tech-badge"
       style={{ backgroundColor: "#8b1721", color: "#e7e7d8" }}
     >
       {label}
@@ -45,7 +46,7 @@ function ServiceCard({
 }) {
   return (
     <div
-      className="h-100 p-4"
+      className="h-100 p-4 service-card"
       style={{
         backgroundColor: "#262626",
         boxShadow: "-12px -12px 0 0 #8b1721",
@@ -75,14 +76,14 @@ function ProjectCard({
   link: string;
 }) {
   return (
-    <div className="position-relative" style={{ marginLeft: 90 }}>
+    <div className="position-relative project-card" style={{ marginLeft: 90 }}>
       <div
-        className="position-absolute overflow-hidden"
+        className="position-absolute overflow-hidden project-card-strip"
         style={{ left: -90, top: -14, bottom: -14, width: 90, backgroundColor: "#8b1721" }}
       >
         <Image src="/img/imgblo.png" alt="" fill style={{ objectFit: "cover" }} />
       </div>
-      <div className="p-4 position-relative" style={{ backgroundColor: "#262626" }}>
+      <div className="p-4 position-relative project-card-body" style={{ backgroundColor: "#262626" }}>
         <div className="d-flex flex-wrap justify-content-between align-items-start gap-3 mb-3">
           <h4 className="fw-bold mb-0" style={{ color: "#eee6d6" }}>
             {title}
@@ -91,10 +92,10 @@ function ProjectCard({
             href={link}
             target="_blank"
             rel="noreferrer"
-            className="fw-semibold text-uppercase small text-nowrap"
+            className="fw-semibold text-uppercase small text-nowrap view-project-link"
             style={{ color: "#e8503f" }}
           >
-            View Project →
+            View Project <span className="arrow">→</span>
           </a>
         </div>
         <p style={{ color: "#e7e7d8" }}>{description}</p>
@@ -379,15 +380,15 @@ export default function Home() {
           </h2>
 
           <div className="row g-4">
-            <div className="col-12">
+            <Reveal className="col-12">
               <AboutCard title="Introduction">
                 <p className="mb-0">{INTRODUCTION}</p>
               </AboutCard>
-            </div>
+            </Reveal>
 
-            <div className="col-md-6">
+            <Reveal className="col-md-6" delay={80}>
               <AboutCard title="Personal Information">
-                <ul className="list-unstyled d-flex flex-column gap-2 mb-0">
+                <ul className="list-unstyled d-flex flex-column gap-2 mb-0 info-list">
                   {PERSONAL_INFO.map((item) => (
                     <li key={item} className={PERSONAL_INFO_HEADS.has(item) ? "fw-bold" : undefined}>
                       {item}
@@ -395,19 +396,19 @@ export default function Home() {
                   ))}
                 </ul>
               </AboutCard>
-            </div>
+            </Reveal>
 
-            <div className="col-md-6">
+            <Reveal className="col-md-6" delay={160}>
               <AboutCard title="Interests">
-                <ul className="list-unstyled d-flex flex-column gap-2 mb-0">
+                <ul className="list-unstyled d-flex flex-column gap-2 mb-0 info-list">
                   {INTERESTS.map((item) => (
                     <li key={item}>{item}</li>
                   ))}
                 </ul>
               </AboutCard>
-            </div>
+            </Reveal>
 
-            <div className="col-md-7">
+            <Reveal className="col-md-7" delay={80}>
               <AboutCard title="Tech Stack">
                 <div className="row g-3 ps-2">
                   {TECH_STACK.map((group) => (
@@ -415,17 +416,17 @@ export default function Home() {
                   ))}
                 </div>
               </AboutCard>
-            </div>
+            </Reveal>
 
-            <div className="col-md-5">
+            <Reveal className="col-md-5" delay={160}>
               <AboutCard title="Skills">
-                <ul className="list-unstyled d-flex flex-column gap-2 mb-0 ps-2">
+                <ul className="list-unstyled d-flex flex-column gap-2 mb-0 ps-2 info-list">
                   {SKILLS.map((skill) => (
                     <li key={skill}>{skill}</li>
                   ))}
                 </ul>
               </AboutCard>
-            </div>
+            </Reveal>
           </div>
         </section>
         <section id="services" className="position-relative container py-5">
@@ -437,10 +438,10 @@ export default function Home() {
           </h2>
 
           <div className="row g-4 pt-3 ps-3">
-            {SERVICES.map((service) => (
-              <div className="col-md-6 col-lg-4" key={service.title}>
+            {SERVICES.map((service, index) => (
+              <Reveal className="col-md-6 col-lg-4" delay={(index % 3) * 100} key={service.title}>
                 <ServiceCard title={service.title} description={service.description} />
-              </div>
+              </Reveal>
             ))}
           </div>
         </section>
@@ -454,7 +455,9 @@ export default function Home() {
 
           <div className="d-flex flex-column gap-5" style={{ paddingTop: 28 }}>
             {PROJECTS.map((project, index) => (
-              <ProjectCard key={`${project.title}-${index}`} {...project} />
+              <Reveal key={`${project.title}-${index}`}>
+                <ProjectCard {...project} />
+              </Reveal>
             ))}
           </div>
         </section>
@@ -478,21 +481,26 @@ export default function Home() {
               </p>
 
               <ul className="list-unstyled d-flex flex-column gap-3 mb-0">
-                {CONTACT_INFO.map((item) => (
-                  <li key={item.label} className="d-flex flex-wrap align-items-center gap-2">
-                    <TechBadge label={item.label} />
-                    {item.href ? (
-                      <a
-                        href={item.href}
-                        target={item.href.startsWith("http") ? "_blank" : undefined}
-                        rel="noreferrer"
-                        style={{ color: "#e7e7d8" }}
-                      >
-                        {item.value}
-                      </a>
-                    ) : (
-                      <span style={{ color: "#e7e7d8" }}>{item.value}</span>
-                    )}
+                {CONTACT_INFO.map((item, index) => (
+                  <li key={item.label}>
+                    <Reveal
+                      className="d-flex flex-wrap align-items-center gap-2 contact-item"
+                      delay={index * 60}
+                    >
+                      <TechBadge label={item.label} />
+                      {item.href ? (
+                        <a
+                          href={item.href}
+                          target={item.href.startsWith("http") ? "_blank" : undefined}
+                          rel="noreferrer"
+                          style={{ color: "#e7e7d8" }}
+                        >
+                          {item.value}
+                        </a>
+                      ) : (
+                        <span style={{ color: "#e7e7d8" }}>{item.value}</span>
+                      )}
+                    </Reveal>
                   </li>
                 ))}
               </ul>

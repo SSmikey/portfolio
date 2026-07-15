@@ -60,7 +60,7 @@ export default function Navbar() {
         <a
           className="navbar-brand fw-bold text-uppercase"
           href="#home"
-          style={{ color: "#eee6d6", letterSpacing: "0.50em" }}
+          style={{ color: "#eee6d6", letterSpacing: "0.50em", transition: "color 0.3s ease" }}
         >
           <span>Sittichai</span>
           <span>Sangnon</span>
@@ -84,7 +84,7 @@ export default function Navbar() {
                 <a
                   key={item.href}
                   href={item.href}
-                  className="nav-link fw-semibold text-uppercase small position-relative"
+                  className="nav-link fw-semibold text-uppercase small position-relative nav-link-custom"
                   style={{
                     color: isActive ? "#e8503f" : "#eee6d6",
                     opacity: isActive ? 1 : 0.85,
@@ -92,6 +92,7 @@ export default function Navbar() {
                 >
                   {item.label}
                   <span
+                    className="nav-underline"
                     style={{
                       position: "absolute",
                       left: 0,

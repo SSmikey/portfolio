@@ -3,25 +3,6 @@ import Navbar from "./Navbar";
 
 const BG_IMAGE = "/img/BG page1.png";
 
-function PlaceholderSection({ id, title }: { id: string; title: string }) {
-  return (
-    <section
-      id={id}
-      className="position-relative vh-100 container d-flex flex-column align-items-center justify-content-center text-center"
-    >
-      <h2
-        className="fw-bold text-uppercase mb-3"
-        style={{ color: "#eee6d6", letterSpacing: "0.15em" }}
-      >
-        {title}
-      </h2>
-      <p className="mb-0" style={{ color: "#d8cfc0", maxWidth: 560 }}>
-        เนื้อหาส่วนนี้กำลังจะเพิ่มเติมเร็ว ๆ นี้
-      </p>
-    </section>
-  );
-}
-
 function AboutCard({
   title,
   children,
@@ -147,16 +128,28 @@ function TechGroup({ name, items }: { name: string; items: string[] }) {
   );
 }
 
+const PERSONAL_INFO_HEADS = new Set([
+  "ชื่อ-นามสกุล",
+  "ชื่อเล่น",
+  "วันเกิด",
+  "อายุ",
+  "การศึกษา",
+]);
+
 const PERSONAL_INFO = [
   "ชื่อ-นามสกุล",
-  "สาขา / มหาวิทยาลัย",
-  "จังหวัด",
-  "Email",
-  "เบอร์โทร",
-  "GitHub",
-  "LinkedIn (ถ้ามี)",
-  "Resume (PDF)",
-  "Portfolio URL",
+  ": นายสิทธิชัย แสงนนท์",
+  "ชื่อเล่น",
+  ": มิกซ์",
+  "วันเกิด",
+  ": 9 กุมภาพันธ์ 2548",
+  "อายุ",
+  ": 21 ปี",
+  "การศึกษา",
+  ": มัธยมศึกษา หลักสูตร วิท-คณิต",
+  "โรงเรียนจตุรภูมิพิทยาคาร",
+  ": ปริญญาตรี สาขาวิทยาการคอมพิวเตอร์",
+  "มหาวิทยาลัยราชภัฏศรีสะเกษ GPA 3.84",
 ];
 
 const WHAT_I_DO = [
@@ -248,8 +241,28 @@ const PROJECTS = [
   // เพิ่มโปรเจกต์ใหม่ต่อจากนี้ได้เลย แต่ละอันจะขึ้น row ใหม่อัตโนมัติ
 ];
 
+const CONTACT_INFO = [
+  {
+    label: "Email",
+    value: "sittichai.sangnon@example.com",
+    href: "mailto:sittichai.sangnon@example.com",
+  },
+  { label: "Phone", value: "08X-XXX-XXXX", href: "tel:08XXXXXXXX" },
+  { label: "Location", value: "กรุงเทพมหานคร, ประเทศไทย" },
+  {
+    label: "GitHub",
+    value: "github.com/sittichai-sangnon",
+    href: "https://github.com/sittichai-sangnon",
+  },
+  {
+    label: "LinkedIn",
+    value: "linkedin.com/in/sittichai-sangnon",
+    href: "https://linkedin.com/in/sittichai-sangnon",
+  },
+];
+
 const INTRODUCTION =
-  "สวัสดีครับ ผมชื่อ Miss นักศึกษาสาขาวิทยาการคอมพิวเตอร์ ผู้สนใจด้าน Full Stack Development " +
+  "สวัสดีครับ ผมชื่อ มิกซ์ นักศึกษาสาขาวิทยาการคอมพิวเตอร์ ผู้สนใจด้าน Full Stack Development " +
   "มีประสบการณ์พัฒนา Web และ Mobile Application ตั้งแต่การวิเคราะห์ความต้องการ ออกแบบฐานข้อมูล " +
   "พัฒนา Frontend และ Backend ไปจนถึงการ Deploy ระบบ พร้อมเรียนรู้เทคโนโลยีใหม่และพัฒนาซอฟต์แวร์ที่ตอบโจทย์การใช้งานจริง";
 
@@ -305,7 +318,9 @@ export default function Home() {
               <AboutCard title="Personal Information">
                 <ul className="list-unstyled d-flex flex-column gap-2 mb-0">
                   {PERSONAL_INFO.map((item) => (
-                    <li key={item}>{item}</li>
+                    <li key={item} className={PERSONAL_INFO_HEADS.has(item) ? "fw-bold" : undefined}>
+                      {item}
+                    </li>
                   ))}
                 </ul>
               </AboutCard>
@@ -372,7 +387,47 @@ export default function Home() {
             ))}
           </div>
         </section>
-        <PlaceholderSection id="contact" title="Contact" />
+        <section id="contact" className="position-relative pt-5">
+          <div
+            className="w-100 p-4"
+            style={{
+              backgroundColor: "#262626",
+              borderTop: "4px solid #8b1721",
+            }}
+          >
+            <div className="container">
+              <h2
+                className="fw-bold text-uppercase text-center mb-3"
+                style={{ color: "#eee6d6", letterSpacing: "0.15em" }}
+              >
+                Contact
+              </h2>
+              <p className="text-center text-nowrap mx-auto mb-5" style={{ color: "#d8cfc0" }}>
+                สนใจร่วมงานหรือพูดคุยเกี่ยวกับโปรเจกต์ ติดต่อได้ตามช่องทางด้านล่าง ยินดีตอบกลับโดยเร็วที่สุด
+              </p>
+
+              <ul className="list-unstyled d-flex flex-column gap-3 mb-0">
+                {CONTACT_INFO.map((item) => (
+                  <li key={item.label} className="d-flex flex-wrap align-items-center gap-2">
+                    <TechBadge label={item.label} />
+                    {item.href ? (
+                      <a
+                        href={item.href}
+                        target={item.href.startsWith("http") ? "_blank" : undefined}
+                        rel="noreferrer"
+                        style={{ color: "#e7e7d8" }}
+                      >
+                        {item.value}
+                      </a>
+                    ) : (
+                      <span style={{ color: "#e7e7d8" }}>{item.value}</span>
+                    )}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+        </section>
       </div>
     </main>
   );

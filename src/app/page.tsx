@@ -173,6 +173,7 @@ const TECH_STACK = [
   { name: "Cloud & DevOps", items: ["Docker", "Vercel", "Google Cloud Storage", "Cloudinary"] },
   { name: "Tools", items: ["Git", "GitHub", "VS Code", "Postman", "Figma"] },
   { name: "APIs & Services", items: ["LINE LIFF", "LINE Messaging API", "Google Maps API", "Leaflet"] },
+  { name: "AI ", items: ["Claude", "ChatGPT", "Gemini", "Microsoft Copilot", "GLM", "Qwen Code"] },
 ];
 
 const SKILLS = [
@@ -218,48 +219,116 @@ const SERVICES = [
 
 const PROJECTS = [
   {
-    title: "ระบบจองคิวออนไลน์ผ่าน LINE LIFF",
+    title: "PSSK Patient Visit Management System",
     description:
-      "เว็บแอปสำหรับจองคิวและแจ้งเตือนสถานะผ่าน LINE โดยตรง ลดเวลารอคิวและงานเอกสารของผู้ดูแลระบบ",
+      "ระบบเว็บสำหรับบริหารจัดการการฝากเยี่ยมผู้ป่วย พร้อมระบบ Agent Buddy และ Admin Dashboard",
     highlights: [
-      "แจ้งเตือนสถานะคิวแบบเรียลไทม์ผ่าน LINE Messaging API",
-      "หน้าแอดมินสำหรับจัดการคิวและดูสถิติการใช้งาน",
-      "ล็อกอินผ่าน LINE LIFF ไม่ต้องสมัครสมาชิกใหม่",
+      "พัฒนา Web Application สำหรับระบบฝากเยี่ยมผู้ป่วย พร้อมระบบ Admin Dashboard, Agent Buddy, รีวิว และการจัดการข้อมูล",
+      "พัฒนา Full Stack พร้อมเชื่อมต่อ LINE LIFF, LINE Messaging API และ MongoDB รวมถึง Deploy ด้วย Docker",
     ],
-    tech: ["Next.js", "MongoDB", "LINE LIFF", "LINE Messaging API"],
+    tech: ["Next.js", "MongoDB", "LINE LIFF", "LINE API", "React", "TypeScript", "JWT", "Google Cloud Storage", "Docker"],
     link: "#",
   },
   {
-    title: "เว็บแอปค้นหาสถานที่ด้วยแผนที่ (GIS)",
-    description: "ระบบค้นหาและกรองสถานที่บนแผนที่แบบอินเตอร์แอคทีฟ รองรับการใช้งานบนมือถือ",
+    title: "GeoPass University Activity Check-in System",
+    description: "ระบบเว็บสำหรับลงทะเบียนและเช็กอินกิจกรรมมหาวิทยาลัย พร้อมระบบสำหรับนักศึกษา เจ้าหน้าที่ และผู้ดูแลระบบ",
     highlights: [
-      "ค้นหาสถานที่ตามพิกัดและระยะทางจากผู้ใช้",
-      "แสดงผลบนแผนที่แบบอินเตอร์แอคทีฟด้วย Leaflet",
-      "ออกแบบ Responsive รองรับทุกขนาดหน้าจอ",
+      "พัฒนา Web Application สำหรับลงทะเบียนและเช็กอินกิจกรรมมหาวิทยาลัย พร้อมระบบ Student, Staff และ Admin",
+      "รองรับการเช็กอินด้วย GPS, QR Code, รูปถ่าย และ Time Code พร้อมแจ้งเตือนผ่าน LINE และแผนที่แบบเรียลไทม์",
     ],
-    tech: ["React", "Leaflet", "Google Maps API", "Express.js"],
+    tech: ["Next.js", "React", "TypeScript", "MongoDB", "NextAuth", "LINE OA", "Cloudinary", "Vercel"],
     link: "#",
   },
-  // เพิ่มโปรเจกต์ใหม่ต่อจากนี้ได้เลย แต่ละอันจะขึ้น row ใหม่อัตโนมัติ
+  {
+    title: "SSK Robot Competition 2026 Certificate Management System (Module)",
+    description: "ระบบออกและดาวน์โหลดเกียรติบัตรสำหรับผู้เข้าแข่งขัน โดยสร้างจาก Template และข้อมูลผลการแข่งขัน",
+    highlights: [
+      "พัฒนาระบบออกและดาวน์โหลดเกียรติบัตรสำหรับผู้เข้าแข่งขัน รองรับการสร้างจาก Template และข้อมูลผลการแข่งขัน",
+    ],
+    tech: ["Next.js", "React", "TypeScript", "PDF-lib", "Google Cloud Storage"],
+    link: "#",
+  },
+  {
+    title: "Law Office Management System",
+    description: "ระบบสำหรับสำนักงานกฎหมายที่รับดำเนินคดีหนี้เสีย (NPL) ให้สถาบันการเงิน จัดการข้อมูลลูกหนี้/สินเชื่อ และออกเอกสารทวงหนี้อัตโนมัติ",
+    highlights: [
+      "พัฒนา Web Application สำหรับบริหารจัดการข้อมูลลูกหนี้และสินเชื่อ พร้อมระบบสร้างเอกสารกฎหมายอัตโนมัติจาก Template",
+      "พัฒนาระบบค้นหา แก้ไข และจัดการข้อมูลคดีและสินเชื่อ เพื่อเพิ่มประสิทธิภาพในการดำเนินงาน",
+    ],
+    tech: ["Next.js", "React", "TypeScript", "MongoDB", "JWT", "Docxtemplater", "Bootstrap"],
+    link: "#",
+  },
+  {
+    title: "SL Concrete Production & Inventory Management System",
+    description: "ระบบบริหารจัดการการผลิต ตรวจสอบคุณภาพ และคลังสินค้าสำหรับโรงงานผลิตคอนกรีตสำเร็จรูป",
+    highlights: [
+      "พัฒนาระบบบันทึกการผลิต (Production Control) และตรวจสอบคุณภาพ (Quality Control)",
+      "พัฒนาระบบจัดการคลังสินค้าและการขาย พร้อมอัปเดตสต็อกอัตโนมัติจากข้อมูลการผลิต",
+      "พัฒนาระบบจัดการผู้ใช้งานและกำหนดสิทธิ์การเข้าถึงด้วย JWT Authentication",
+    ],
+    tech: ["Next.js", "React", "TypeScript", "MongoDB", "JWT", "Bootstrap", "Docker"],
+    link: "#",
+  },
+  {
+    title: "Stall Lock Market Stall Booking System",
+    description: "ระบบเว็บสำหรับจองแผงขายของในตลาด พร้อมระบบชำระเงินและตรวจสอบการจอง",
+    highlights: [
+      "พัฒนาระบบจองแผงและอัปโหลดหลักฐานการชำระเงิน",
+      "พัฒนาระบบอนุมัติการจองและจัดการแผงผ่าน Admin Dashboard",
+      "พัฒนาระบบหมดเวลาการจองและคืนแผงอัตโนมัติ",
+    ],
+    tech: ["Next.js", "React", "TypeScript", "MongoDB", "JWT", "Cloudinary", "Bootstrap", "Docker"],
+    link: "#",
+  },
+  {
+    title: "Bill Mate Dormitory Billing Management System",
+    description: "ระบบเว็บสำหรับบริหารจัดการค่าเช่าและบิลหอพัก พร้อมระบบตรวจสอบการชำระเงินและแจ้งซ่อม",
+    highlights: [
+      "พัฒนาระบบจัดการห้องพัก ผู้เช่า และการออกบิลรายเดือน",
+      "พัฒนาระบบอัปโหลดสลิป พร้อมตรวจสอบข้อมูลด้วย OCR และ QR Code",
+      "พัฒนาระบบแจ้งซ่อมและแจ้งเตือนสำหรับผู้เช่าและผู้ดูแลระบบ",
+    ],
+    tech: ["Next.js", "React", "TypeScript", "MongoDB", "NextAuth", "AWS S3", "Tesseract.js", "Google Cloud Vision"],
+    link: "#",
+  },
+  {
+    title: "CPES Classroom Project Evaluation System",
+    description: "ระบบเว็บสำหรับประเมินผลงานโครงงานของนักศึกษา พร้อมระบบจัดการแบบประเมินและสรุปผลการประเมิน",
+    highlights: [
+      "พัฒนาระบบประเมินโครงงานออนไลน์ พร้อมป้องกันการประเมินซ้ำและการประเมินกลุ่มของตนเอง",
+      "พัฒนาระบบจัดการแบบประเมิน กลุ่มโครงงาน และข้อมูลนักศึกษาผ่าน Admin Dashboard",
+      "พัฒนาระบบสรุปสถิติและส่งออกผลการประเมิน",
+    ],
+    tech: ["Next.js", "React", "TypeScript", "MongoDB", "Mongoose", "Tailwind CSS", "Radix UI", "Docker"],
+    link: "#",
+  },
+  {
+    title: "SPVV Clothing E-commerce Website",
+    description: "เว็บไซต์จำหน่ายเสื้อโปโลออนไลน์ พร้อมระบบจัดการสินค้า สต็อก และคำสั่งซื้อ",
+    highlights: [
+      "พัฒนาระบบแสดงสินค้าและจัดการสต็อกแบบเรียลไทม์",
+      "พัฒนาระบบสั่งซื้อและยืนยันตัวตนของผู้ใช้งาน",
+    ],
+    tech: ["Next.js", "React", "TypeScript", "MongoDB", "Mongoose", "NextAuth", "Bootstrap"],
+    link: "#",
+  },
 ];
 
 const CONTACT_INFO = [
   {
     label: "Email",
-    value: "sittichai.sangnon@example.com",
-    href: "mailto:sittichai.sangnon@example.com",
+    value: "Seangnon09@gmail.com",
   },
-  { label: "Phone", value: "08X-XXX-XXXX", href: "tel:08XXXXXXXX" },
-  { label: "Location", value: "กรุงเทพมหานคร, ประเทศไทย" },
+  { label: "Phone", value: "0980461071"},
+  { label: "Location", value: "บ้านตาเกษ ตำบลตาเกษ อำเภออุทุมพรพิสัย จังหวัดศรีสะเกษ" },
   {
     label: "GitHub",
-    value: "github.com/sittichai-sangnon",
-    href: "https://github.com/sittichai-sangnon",
+    value: "github.com/SSmikey",
+    href: "https://github.com/SSmikey",
   },
   {
-    label: "LinkedIn",
-    value: "linkedin.com/in/sittichai-sangnon",
-    href: "https://linkedin.com/in/sittichai-sangnon",
+    label: "Line",
+    value: "mik003",
   },
 ];
 
@@ -384,8 +453,8 @@ export default function Home() {
           </h2>
 
           <div className="d-flex flex-column gap-5" style={{ paddingTop: 28 }}>
-            {PROJECTS.map((project) => (
-              <ProjectCard key={project.title} {...project} />
+            {PROJECTS.map((project, index) => (
+              <ProjectCard key={`${project.title}-${index}`} {...project} />
             ))}
           </div>
         </section>

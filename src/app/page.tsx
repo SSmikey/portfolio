@@ -152,15 +152,17 @@ const PERSONAL_INFO = [
   "มหาวิทยาลัยราชภัฏศรีสะเกษ GPA 3.84",
 ];
 
-const WHAT_I_DO = [
-  "Web Development",
-  "Mobile Development",
-  "Backend Development",
-  "Frontend Development",
+const INTERESTS = [
+  "Full Stack Development",
+  "Web Application Development",
+  "Mobile Application Development",
+  "System Design & Architecture",
+  "API Integration",
   "Database Design",
-  "REST API Development",
-  "GIS & Map Integration",
-  "Cloud Deployment",
+  "Cloud & Deployment",
+  "AI Integration",
+  "GIS & Location-Based Services",
+  "Learning New Technologies",
 ];
 
 const TECH_STACK = [
@@ -327,9 +329,9 @@ export default function Home() {
             </div>
 
             <div className="col-md-6">
-              <AboutCard title="What I Do">
+              <AboutCard title="Interests">
                 <ul className="list-unstyled d-flex flex-column gap-2 mb-0">
-                  {WHAT_I_DO.map((item) => (
+                  {INTERESTS.map((item) => (
                     <li key={item}>{item}</li>
                   ))}
                 </ul>

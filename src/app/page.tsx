@@ -80,6 +80,58 @@ function ServiceCard({
   );
 }
 
+function ProjectCard({
+  title,
+  description,
+  highlights,
+  tech,
+  link,
+}: {
+  title: string;
+  description: string;
+  highlights: string[];
+  tech: string[];
+  link: string;
+}) {
+  return (
+    <div className="position-relative" style={{ marginLeft: 90 }}>
+      <div
+        className="position-absolute overflow-hidden"
+        style={{ left: -90, top: -14, bottom: -14, width: 90, backgroundColor: "#8b1721" }}
+      >
+        <Image src="/img/imgblo.png" alt="" fill style={{ objectFit: "cover" }} />
+      </div>
+      <div className="p-4 position-relative" style={{ backgroundColor: "#262626" }}>
+        <div className="d-flex flex-wrap justify-content-between align-items-start gap-3 mb-3">
+          <h4 className="fw-bold mb-0" style={{ color: "#eee6d6" }}>
+            {title}
+          </h4>
+          <a
+            href={link}
+            target="_blank"
+            rel="noreferrer"
+            className="fw-semibold text-uppercase small text-nowrap"
+            style={{ color: "#e8503f" }}
+          >
+            View Project →
+          </a>
+        </div>
+        <p style={{ color: "#e7e7d8" }}>{description}</p>
+        <ul className="mb-3 ps-3" style={{ color: "#e7e7d8" }}>
+          {highlights.map((point) => (
+            <li key={point}>{point}</li>
+          ))}
+        </ul>
+        <div className="d-flex flex-wrap gap-2">
+          {tech.map((item) => (
+            <TechBadge key={item} label={item} />
+          ))}
+        </div>
+      </div>
+    </div>
+  );
+}
+
 function TechGroup({ name, items }: { name: string; items: string[] }) {
   return (
     <div className="col-6">
@@ -167,6 +219,33 @@ const SERVICES = [
     title: "Cloud Deployment & DevOps",
     description: "Deploy และดูแลระบบด้วย Docker, Vercel, Google Cloud ให้พร้อมใช้งานจริง",
   },
+];
+
+const PROJECTS = [
+  {
+    title: "ระบบจองคิวออนไลน์ผ่าน LINE LIFF",
+    description:
+      "เว็บแอปสำหรับจองคิวและแจ้งเตือนสถานะผ่าน LINE โดยตรง ลดเวลารอคิวและงานเอกสารของผู้ดูแลระบบ",
+    highlights: [
+      "แจ้งเตือนสถานะคิวแบบเรียลไทม์ผ่าน LINE Messaging API",
+      "หน้าแอดมินสำหรับจัดการคิวและดูสถิติการใช้งาน",
+      "ล็อกอินผ่าน LINE LIFF ไม่ต้องสมัครสมาชิกใหม่",
+    ],
+    tech: ["Next.js", "MongoDB", "LINE LIFF", "LINE Messaging API"],
+    link: "#",
+  },
+  {
+    title: "เว็บแอปค้นหาสถานที่ด้วยแผนที่ (GIS)",
+    description: "ระบบค้นหาและกรองสถานที่บนแผนที่แบบอินเตอร์แอคทีฟ รองรับการใช้งานบนมือถือ",
+    highlights: [
+      "ค้นหาสถานที่ตามพิกัดและระยะทางจากผู้ใช้",
+      "แสดงผลบนแผนที่แบบอินเตอร์แอคทีฟด้วย Leaflet",
+      "ออกแบบ Responsive รองรับทุกขนาดหน้าจอ",
+    ],
+    tech: ["React", "Leaflet", "Google Maps API", "Express.js"],
+    link: "#",
+  },
+  // เพิ่มโปรเจกต์ใหม่ต่อจากนี้ได้เลย แต่ละอันจะขึ้น row ใหม่อัตโนมัติ
 ];
 
 const INTRODUCTION =
@@ -279,7 +358,20 @@ export default function Home() {
             ))}
           </div>
         </section>
-        <PlaceholderSection id="projects" title="Projects" />
+        <section id="projects" className="position-relative container py-5">
+          <h2
+            className="fw-bold text-uppercase text-center mb-5"
+            style={{ color: "#eee6d6", letterSpacing: "0.15em" }}
+          >
+            Projects
+          </h2>
+
+          <div className="d-flex flex-column gap-5" style={{ paddingTop: 28 }}>
+            {PROJECTS.map((project) => (
+              <ProjectCard key={project.title} {...project} />
+            ))}
+          </div>
+        </section>
         <PlaceholderSection id="contact" title="Contact" />
       </div>
     </main>

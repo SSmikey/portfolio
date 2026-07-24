@@ -105,14 +105,6 @@ a {
   color: #e8503f !important;
 }
 
-.project-card-strip img {
-  transition: transform 0.5s ease;
-}
-
-.project-card:hover .project-card-strip img {
-  transform: scale(1.1);
-}
-
 .project-card-body {
   transition: transform 0.35s ease, box-shadow 0.35s ease;
 }
@@ -199,7 +191,6 @@ a {
   .tech-badge,
   .service-card,
   .service-card h5,
-  .project-card-strip img,
   .project-card-body,
   .view-project-link,
   .view-project-link .arrow,

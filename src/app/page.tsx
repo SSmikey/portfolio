@@ -78,11 +78,9 @@ function ProjectCard({
   return (
     <div className="position-relative project-card" style={{ marginLeft: 90 }}>
       <div
-        className="position-absolute overflow-hidden project-card-strip"
+        className="position-absolute project-card-strip"
         style={{ left: -90, top: -14, bottom: -14, width: 90, backgroundColor: "#8b1721" }}
-      >
-        <Image src="/img/imgblo.png" alt="" fill style={{ objectFit: "cover" }} />
-      </div>
+      />
       <div className="p-4 position-relative project-card-body" style={{ backgroundColor: "#262626" }}>
         <div className="d-flex flex-wrap justify-content-between align-items-start gap-3 mb-3">
           <h4 className="fw-bold mb-0" style={{ color: "#eee6d6" }}>

@@ -165,29 +165,35 @@ const INTERESTS = [
 ];
 
 const TECH_STACK = [
-  { name: "Frontend", items: ["HTML5", "CSS3", "JavaScript", "TypeScript", "React", "Next.js", "Bootstrap", "Tailwind CSS"] },
-  { name: "Backend", items: ["Django", "Node.js", "Express.js", "REST API"] },
-  { name: "Mobile", items: ["Flutter"] },
-  { name: "Database", items: ["MongoDB", "MySQL"] },
-  { name: "Cloud & DevOps", items: ["Docker", "Vercel", "Google Cloud Storage", "Cloudinary"] },
-  { name: "Tools", items: ["Git", "GitHub", "VS Code", "Postman", "Figma"] },
-  { name: "APIs & Services", items: ["LINE LIFF", "LINE Messaging API", "Google Maps API", "Leaflet"] },
-  { name: "AI ", items: ["Claude", "ChatGPT", "Gemini", "Microsoft Copilot", "GLM", "Qwen Code"] },
-];
+  {
+    name: "Frontend",
+    items: ["Next.js", "React", "TypeScript", "Bootstrap"],
+  },
+  {
+    name: "Backend",
+    items: ["Next.js API Routes", "Node.js", "Django", "REST API"],
+  },
+  {
+    name: "Database",
+    items: ["MongoDB", "MySQL"],
+  },
+  {
+    name: "Tools",
+    items: ["Git", "Docker", "Postman"],
+  },
+  {
+    name: "AI Tools",
+    items: ["ChatGPT", "Claude", "Gemini"],
+  },
+]
 
 const SKILLS = [
-  "Full Stack Development",
+  "Backend Development",
+  "REST API",
   "Database Design",
-  "REST API Development",
-  "Authentication (JWT / OAuth)",
-  "Responsive Web Design",
-  "System Analysis",
-  "UI Implementation",
-  "Deployment & DevOps",
-  "Version Control (Git)",
-  "Problem Solving",
-  "Debugging",
-  "Team Collaboration",
+  "Authentication",
+  "System Design",
+  "Deployment",
 ];
 
 const SERVICES = [

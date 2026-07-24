@@ -152,16 +152,13 @@ const PERSONAL_INFO = [
 ];
 
 const INTERESTS = [
-  "Full Stack Development",
-  "Web Application Development",
-  "Mobile Application Development",
-  "System Design & Architecture",
-  "API Integration",
+  "Backend Development",
+  "System Design",
+  "REST API",
   "Database Design",
+  "Authentication",
   "Cloud & Deployment",
   "AI Integration",
-  "GIS & Location-Based Services",
-  "Learning New Technologies",
 ];
 
 const TECH_STACK = [
